@@ -1,29 +1,39 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name %>
-  </p>
-   <p>
-    <%= f.label :photo_path %><br />
-    <%= f.text_field :photo_path %>
-  </p>
-   <p>
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
-  </p>
-   <p>
-    <%= f.label :account_type %><br />
-    <%= f.select :type, ['Student', 'Mentor'] %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p class="button"><%= f.submit %></p>
+<% if @errors %>
+<ul>
+  <% @errors.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_tag(users_path, method: 'post') do %>
+  <ul>
+    <li>
+      <%= label_tag 'full_name' %><br />
+      <%= text_field_tag "user[full_name]" %>
+    </li>
+     <li>
+      <%= label_tag :photo_path %><br />
+      <%= text_field_tag "user[photo_path]" %>
+    </li>
+     <li>
+      <%= label_tag :phone_number %><br />
+      <%= text_field_tag "user[phone_number]" %>
+    </li>
+     <li>
+      <%= label_tag :type %><br />
+      <%= select_tag 'user[type]', "<option>Mentor</option><option>Student</option>".html_safe %>
+    </li>
+    <li>
+      <%= label_tag :email %><br />
+      <%= text_field_tag 'user[email]' %>
+    </li>
+    <li>
+      <%= label_tag :password %><br />
+      <%= password_field_tag 'user[password]' %>
+    </li>
+     <%= submit_tag('Register') %>
+  </ul>
 <% end %>
