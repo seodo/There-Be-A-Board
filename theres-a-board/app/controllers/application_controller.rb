@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_layout
-    current_user ? current_user.type.downcase : 'application'
+   logged_in? ? current_user.type.downcase : "application"
   end
 
 end

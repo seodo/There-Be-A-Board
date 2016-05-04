@@ -1,0 +1,29 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.label :full_name %><br />
+    <%= f.text_field :full_name %>
+  </p>
+   <p>
+    <%= f.label :photo_path %><br />
+    <%= f.text_field :photo_path %>
+  </p>
+   <p>
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </p>
+   <p>
+    <%= f.label :account_type %><br />
+    <%= f.select :type, ['Student', 'Mentor'] %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
