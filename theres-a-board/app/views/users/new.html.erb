@@ -1,0 +1,39 @@
+<h1>Sign Up</h1>
+
+<% if @errors %>
+<ul>
+  <% @errors.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_tag(users_path, method: 'post') do %>
+  <ul>
+    <li>
+      <%= label_tag 'full_name' %><br />
+      <%= text_field_tag "user[full_name]" %>
+    </li>
+     <li>
+      <%= label_tag :photo_path %><br />
+      <%= text_field_tag "user[photo_path]" %>
+    </li>
+     <li>
+      <%= label_tag :phone_number %><br />
+      <%= text_field_tag "user[phone_number]" %>
+    </li>
+     <li>
+      <%= label_tag :type %><br />
+      <%= select_tag 'user[type]', "<option>Student</option><option>Mentor</option>".html_safe %>
+    </li>
+    <li>
+      <%= label_tag :email %><br />
+      <%= text_field_tag 'user[email]' %>
+    </li>
+    <li>
+      <%= label_tag :password %><br />
+      <%= password_field_tag 'user[password]' %>
+    </li>
+     <%= submit_tag('Register') %>
+  </ul>
+<% end %>

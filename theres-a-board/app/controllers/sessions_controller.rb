@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       if @user.type == "Student"
@@ -17,5 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session.clear
+    redirect_to root_path
   end
 end

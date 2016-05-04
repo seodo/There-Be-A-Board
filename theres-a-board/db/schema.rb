@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504161037) do
+ActiveRecord::Schema.define(version: 20160504221258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "start_time", null: false
+    t.datetime "end_time"
+    t.integer  "length",     null: false
+    t.text     "notes"
+    t.string   "status"
+    t.integer  "phase",      null: false
+    t.integer  "mentor_id",  null: false
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "appointments_topics", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "appointment_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics_users", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "mentor_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "full_name",                           null: false
@@ -25,6 +54,11 @@ ActiveRecord::Schema.define(version: 20160504161037) do
     t.string   "type",            default: "Student"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+  end
+
+  create_table "users_topics", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "mentor_id"
   end
 
 end
