@@ -1,7 +1,17 @@
-<%= form_tag('/login', method: 'post') do %>
-  <%= label_tag('Email') %>
-  <%= text_field_tag(:email) %>
-  <%= label_tag('Password') %>
-  <%= password_field_tag(:password) %>
-  <%= submit_tag('Log In') %>
-<% end %>
+<div class="form-group">
+    <h1 id="sign-up-header">Log In</h1>
+  <%= form_tag('/login', method: 'post') do %>
+  <ul class="form-center">
+    <li>
+    <%= label_tag('Email') %><br />
+    <%= text_field_tag(:email) %>
+  </li>
+  <li>
+    <%= label_tag('Password') %><br />
+    <%= password_field_tag(:password) %>
+  </li>
+  <li>
+    <%= submit_tag('Log In', :class => "btn btn-warning") %>
+  </li>
+  <% end %>
+</div>
