@@ -18,10 +18,15 @@ title{
  .navbar-default {
  	background-color: white;
  	border-radius: 0;
- 	height: 80px;
- 	padding: 15px 0;
+ 	height: 100px;
+ 	padding: 25px 0;
   border-bottom: 4px solid black;
  }
+
+ a{
+  color: #48948c;
+ }
+
 
  .form-horizontal{
   width: 50%;
@@ -47,6 +52,10 @@ title{
    width: 200px;
  }
 
+ #appt-listing a{
+  color: #48948c;
+ }
+
 .navbar-brand a{
   color: #60c5ba;
   font-size: 2.8em;
@@ -59,3 +68,6 @@ title{
 .btn-warning{
   margin: 10px;
 }
+ a:hover{
+  color: #e78d0c;
+ }
