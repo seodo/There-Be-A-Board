@@ -28,16 +28,15 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find_by(id: params[:id])
   end
 
-  # def update
-  #   @appointment = Appointment.find_by(id: params[:id])
-  #   @appointment.assign_attributes(student_id: current_user.id)
-  #   if @appointment.save
-  #
-  #
-  #   else
-  #      @errors = @appointment.errors.full_messages
-  #   end
-  # end
+  def update
+    @appointment = Appointment.find_by(id: params[:id])
+    @appointment.assign_attributes(student_id: current_user.id)
+    if @appointment.save
+      redirect_to root_path
+    else
+       @errors = @appointment.errors.full_messages
+    end
+  end
 
   private
 

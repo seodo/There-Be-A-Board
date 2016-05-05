@@ -12,9 +12,6 @@ Appointment Show Page
     <% end %>
   </ul>
   <% end %>
+<br>
 
-<%= form_for @appointment do |f| %>
-<%= f.button :submit %>
-<% end %>
-
-
+<%= link_to "book!", appointment_path(@appointment), method: :put %>

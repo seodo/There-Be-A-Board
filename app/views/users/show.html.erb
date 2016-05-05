@@ -6,6 +6,10 @@
     <li><%=appt.start_time%>, <%=appt.length%> minutes</li>
     <li>My Notes: <%=appt.notes%></li>
     <%end%>
-    <% else %>
+<% end %>
+
+
+    <% if @user.type == "Student" %>
     <%= link_to "Find a Tutoring Session", appointments_path %>
+
 <% end %>
