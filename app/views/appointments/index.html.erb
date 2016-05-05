@@ -1,3 +1,4 @@
+
 Appointment Index Page
 <div id="right-sidebar">
   <ul>
@@ -16,3 +17,11 @@ Appointment Index Page
     <% end %>
   </ol>
 </div>
+
+<h1>All Available Appointments</h1>
+  <ol>
+  <%@appointments.each do |appt|%>
+      <li><h1><%=link_to appt.start_time, appointment_path(appt) %></h1></li>
+  <% end %>
+  </ol>
+
