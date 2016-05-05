@@ -10,9 +10,12 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
     @appointment.topics << Topic.find(params[:appointment][:topics])
+    @appointment.start_time = combine_date_time(params[:date], params[:time])
+    @topics = Topic.all
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
@@ -38,8 +41,9 @@ class AppointmentsController < ApplicationController
 
   private
 
-  def time_params
-    params.require(:appointment).permit(:date, :time)
+  def combine_date_time(date, time)
+    dt = "#{date} #{time} +0400"
+    DateTime.parse(dt)
   end
 
   def appointment_params

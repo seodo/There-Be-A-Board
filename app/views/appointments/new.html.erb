@@ -11,8 +11,8 @@
   <% end %>
 
   <%= simple_form_for @appointment do |f| %>
-    <input type='date' name:'date' />
-    <input type='time' name:'time' />
+    <input type='date' name= 'date' />
+    <input type='time' name= 'time' />
 
 
     <%= f.input :length, collection: ["30", "60"], input_html: {multiple: false} %>
@@ -33,6 +33,3 @@
     <%= f.button :submit, {:class => "btn btn-warning"}%>
   <% end %>
 <!-- </div> -->
-
-
-
