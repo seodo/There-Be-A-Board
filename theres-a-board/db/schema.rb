@@ -35,8 +35,7 @@ ActiveRecord::Schema.define(version: 20160505140938) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "mentor_id"
-    t.integer  "student_id"
+    t.integer  "author_id"
     t.integer  "rating",         null: false
     t.text     "body",           null: false
     t.integer  "appointment_id"
@@ -64,11 +63,6 @@ ActiveRecord::Schema.define(version: 20160505140938) do
     t.string   "type",            default: "Student"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-  end
-
-  create_table "users_topics", force: :cascade do |t|
-    t.integer "topic_id"
-    t.integer "mentor_id"
   end
 
 end

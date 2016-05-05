@@ -1,0 +1,16 @@
+<h1>Review!!!!!!!!!!!!</h1>
+<%= form_for([@appointment, @review]) do |f|%>
+<p>
+  <%= f.label :rating %>
+  <%= f.select :rating, ['1', '2', '3', '4', '5']%>
+</p>
+
+<p>
+  <%= f.label :body%>
+  <%= f.text_area :body%>
+</p>
+
+<p>
+  <%= f.submit%>
+</p>
+<%end%>
