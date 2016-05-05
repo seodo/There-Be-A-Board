@@ -8,7 +8,8 @@
 </head>
 <body>
   <%= render 'shared/nav' %>
-  <h2>Student Access</h2>
+  <h2>Welcome, <%=@user.full_name%>! </h2>
+    <p>Student Access</p>
 <%= yield %>
 
 </body>
