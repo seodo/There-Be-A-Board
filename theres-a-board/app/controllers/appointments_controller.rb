@@ -1,18 +1,26 @@
 class AppointmentsController < ApplicationController
 
+  def index
+    @appointments = Appointment.all
+  end
+
   def new
     @appointment = Appointment.new
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
+    @appointment.mentor_id = current_user.id
     if @appointment.save
-      session[:appointment_id] = @appointment.id
-      redirect_to user_appointment_path(@appointment)
+      redirect_to appointment_path(@appointment)
     else
       @errors = @appointment.errors.full_messages
       render 'new'
     end
+  end
+
+  def show
+    @appointment = Appointment.find_by(id: params[:id])
   end
 
   private

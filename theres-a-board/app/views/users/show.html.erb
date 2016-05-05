@@ -1,5 +1,11 @@
-
-Hi
-<%= @user.full_name %>
-
-<%= link_to "Create a New Tutoring Session", new_user_appointment_path(@user) %>
+  <h2>Welcome, <%=@user.full_name%>! </h2>
+<% if @user.type == "Mentor" %>
+  <%= link_to "Create a New Tutoring Session", new_appointment_path %>
+  <h2>My Future Appointments</h2>
+  <ul><%@user.appointments.each do |appt| %>
+    <li><%=appt.start_time%>, <%=appt.length%> minutes</li>
+    <li>My Notes: <%=appt.notes%></li>
+    <%end%>
+    <% else %>
+    <%= link_to "Find a Tutoring Session", appointments_path %>
+<% end %>
