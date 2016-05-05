@@ -1,4 +1,4 @@
-
+  <h2>Welcome, <%=@user.full_name%>! </h2>
 <% if @user.type == "Mentor" %>
   <%= link_to "Create a New Tutoring Session", new_appointment_path %>
   <h2>My Future Appointments</h2>
