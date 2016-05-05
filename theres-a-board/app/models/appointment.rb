@@ -11,8 +11,22 @@ def end_time
   start_time + length.minutes
 end
 
+def open?
+  !student_id && !self.complete?
+end
+
+def accepted?
+  !self.open?
+end
+
+def complete?
+  self.end_time < DateTime.now
+end
+
+private
+
 def cannot_end_before_it_starts
-  if start_time - end_time < 0
+  if start_time - self.end_time < 0
     errors.add(:end_time, "cannot be before the start time.")
   end
 end
@@ -28,7 +42,7 @@ def cannot_overlap_existing_user_appointment
   if potential_conflicts.any?{
     |appt| start_time >= appt.start_time && start_time < appt.end_time }
     errors.add(:start_time, "overlaps with one of your existing commitments.")
-  elsif potential_conflicts.any?{ |appt| end_time > appt.start_time && end_time <= appt.end_time}
+  elsif potential_conflicts.any?{ |appt| self.end_time > appt.start_time && self.end_time <= appt.end_time}
       errors.add(:end_time, "overlaps with one of your existing commitments.")
   end
 end
