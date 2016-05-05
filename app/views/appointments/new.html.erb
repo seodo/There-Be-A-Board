@@ -17,12 +17,10 @@
 
     <%= f.input :length, collection: ["30", "60"], input_html: {multiple: false} %>
 
-
-
     <% if @topics && @topics.length > 0 %>
     <strong>Topics:</strong>
       <% @topics.each do |topic| %>
-      <%= check_box_tag "topics[]", topic.name %>
+      <%= check_box_tag "appointment[topics][]", topic.id %>
       <%= topic.name %>
       <% end %>
     <% end %>
