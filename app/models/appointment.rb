@@ -15,7 +15,7 @@ def open?
   !student_id && !self.complete?
 end
 
-def accepted?
+def booked?
   !self.open?
 end
 
