@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @topics = Topic.all
   end
 
   def create
