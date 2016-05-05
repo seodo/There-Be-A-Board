@@ -24,6 +24,17 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find_by(id: params[:id])
   end
 
+  def update
+    @appointment = Appointment.find_by(id: params[:id])
+    @appointment.assign_attributes(student_id: current_user.id)
+    if @appointment.save
+      binding.pry
+
+    else
+       @errors = @appointment.errors.full_messages
+    end
+  end
+
   private
   def appointment_params
     params.require(:appointment).permit(:start_time, :length, :notes, :phase, :status)
