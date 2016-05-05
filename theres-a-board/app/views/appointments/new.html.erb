@@ -1,5 +1,5 @@
-<div class="form-group">
-  <h1 id="sign-up-header">Create an Tutoring Session</h1>
+<!-- <div class="form-group"> -->
+  <h1 id="sign-up-header">Create a Tutoring Session</h1>
 
   <% if @errors %>
   <ul>
@@ -9,25 +9,11 @@
   </ul>
   <% end %>
 
-  <%= form_tag(user_appointment_path, method: 'post') do %>
-    <ul>
-      <li>
-        <%= label_tag 'start_time' %><br />
-        <%= text_field_tag "appointment[start_time]" %>
-      </li>
-      <li>
-        <%= label_tag :length %><br />
-        <%= select_tag 'appointment[length]', "<option>30</option><option>60</option>".html_safe %>
-      </li>
-       <li>
-        <%= label_tag :notes %><br />
-        <%= text_field_tag "appointment[notes]" %>
-      </li>
-      <li>
-        <%= label_tag :phase %><br />
-        <%= text_field_tag 'appointment[phase]' %>
-      </li>
-       <li><%= submit_tag('Create Session', :class => "btn btn-warning") %></li>
-    </ul>
+  <%= simple_form_for @appointment do |f| %>
+    <%= f.input :start_time, label: "Start Time", input_html: {class: "form-control"} %>
+
+    <%= f.input :notes, label: "Notes", input_html: {class: "form-control"} %>
+    <%= f.input :phase, label: "Mentor Phase", input_html: {class: "form-control"} %>
+    <%= f.button :submit %>
   <% end %>
-</div>
+<!-- </div> -->
