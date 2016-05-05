@@ -21,7 +21,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    if logged_in?
+      @user = User.find(params[:id])
+    else
+      redirect_to 'sessions#new'
+    end
   end
 
   def destroy

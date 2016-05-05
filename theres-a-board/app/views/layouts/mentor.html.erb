@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'shared/nav' %>
   <nav>
-    <%= link_to "Logout", logout_path, method: :delete %>
   </nav>
 You are a mentor.
 <%= yield %>
