@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ body{
+ 	height: 100%;
+  background: -webkit-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
+ background:    -moz-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
+ background:     -ms-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
+ background:      -o-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
+ background:         linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
+  font-family: 'Lato', sans-serif;
+ }
+
+title{
+  color: #60c5ba;
+}
+ .navbar-default {
+ 	background-color: white;
+ 	border-radius: 0;
+ 	height: 80px;
+ 	padding: 15px 0;
+  border-bottom: 4px solid black;
+ }
+
+ .form-horizontal{
+  width: 50%;
+  margin: 0 auto;
+ }
+
+ .form-group li{
+   list-style-type: none;
+   text-align: center;
+   margin: 0 auto;
+ }
+
+ #sign-up-header{
+   color: #60c5ba;
+   size: 2em;
+   padding: 20px;
+   text-transform: uppercase;
+   margin: 0 auto;
+   text-align: center;
+   letter-spacing: 1px;
+   font-weight: 300;
+ }
+
+.navbar-brand a{
+  color: #60c5ba;
+  font-size: 2.8em;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.btn-warning{
+  margin: 10px;
+}
