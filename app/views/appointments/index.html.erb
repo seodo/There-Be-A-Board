@@ -21,7 +21,10 @@ Appointment Index Page
 <h1>All Available Appointments</h1>
   <ol>
   <%@appointments.each do |appt|%>
-      <li><h1><%=link_to appt.start_time, appointment_path(appt) %></h1></li>
+      <li>
+        <h1><%=link_to appt.start_time, appointment_path(appt) %></h1>
+        <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p>
+      </li>
   <% end %>
   </ol>
 
