@@ -6,7 +6,7 @@ module AppointmentsHelper
   end
 
   def open_appts_where_phase_is(phase)
-    open_appointments.find_all{|a| a.phase == phase.to_i}
+    phase ? open_appointments.find_all{|a| a.phase == phase.to_i} : open_appointments
   end
 
   def format_time_for_visibility(time)

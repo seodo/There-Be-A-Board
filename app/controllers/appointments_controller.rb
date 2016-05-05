@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   include AppointmentsHelper
 
   def index
-    @phase = params[:phase] || 0
+    @phase = params[:phase]
     @appointments = open_appts_where_phase_is(@phase)
   end
 
