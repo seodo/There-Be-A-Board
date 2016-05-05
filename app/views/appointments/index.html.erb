@@ -10,8 +10,9 @@ Appointment Index Page
 
 <div id="appointment_roll">
   <ol>
-<%@appointments.each do |appt|%>
-    <li><h1><%= appt.start_time%></h1></li>
-<% end %>
+    <%@appointments.each do |appt|%>
+        <li><h1><%= appt.start_time%></h1></li>
+        <li><h1><%=link_to appt.start_time, appointment_path(appt) %></h1></li>
+    <% end %>
   </ol>
 </div>
