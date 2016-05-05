@@ -23,7 +23,7 @@ Appointment Index Page
   <%@appointments.each do |appt|%>
 
       <li>
-        <h1><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
+        <h1 id="appt-listing"><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
         <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p>
       </li>
   <% end %>
