@@ -27,4 +27,6 @@ class AppointmentsController < ApplicationController
   def appointment_params
     params.require(:appointment).permit(:start_time, :length, :notes, :phase, :status)
   end
+
 end
+
