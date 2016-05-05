@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :users do
-    resources :appointments
+  resources :users
+  resources :appointments do
+    resources :reviews, only: [:new, :create]
   end
-
-
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

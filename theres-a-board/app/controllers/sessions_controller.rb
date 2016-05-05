@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       if @user.type == "Student"
-        redirect_to appointments_path
+        redirect_to user_path(@user)
       else
         redirect_to user_path(@user)
       end
