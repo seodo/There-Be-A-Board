@@ -27,6 +27,7 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find_by(id: params[:id])
+    @appointment.start_time = format_time_for_visibility(@appointment.start_time)
   end
 
   def update
