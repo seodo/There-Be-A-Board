@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
+  include AppointmentsHelper
 
   def index
-    @appointments = Appointment.all
+    @phase = params[:phase] || 0
+    @appointments = open_appts_where_phase_is(@phase)
   end
 
   def new
@@ -10,7 +12,6 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
     @appointment.topics << Topic.find(params[:appointment][:topics])

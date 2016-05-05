@@ -1,6 +1,17 @@
 Appointment Index Page
-<%@appointments.each do |appt|%>
+<div id="right-sidebar">
+  <ul>
+    <li>Show by mentor phase:</li>
+    <% 5.times do |i| %>
+    <li><%=link_to i, appointments_path(phase: i)%></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="appointment_roll">
   <ol>
+<%@appointments.each do |appt|%>
     <li><h1><%= appt.start_time%></h1></li>
-  </ol>
 <% end %>
+  </ol>
+</div>
