@@ -6,6 +6,11 @@ User.create!(full_name: "Julia", email: "julia@gmail.com", password: "123", type
 Appointment.create!(start_time: "2016-06-01", length: "60", mentor_id: 2, student_id: 1, phase: 3)
 Appointment.create!(start_time: "2016-07-01", length: "30", mentor_id: 4, student_id: 3, phase: 3)
 
+
+Appointment.create!(start_time: "2016-06-05", length: "60", mentor_id: 2, phase: 3)
+Appointment.create!(start_time: "2016-07-08", length: "30", mentor_id: 2, phase: 3)
+
+
 Topic.create!(name: "Ruby")
 Topic.create!(name: "JavaScript")
 Topic.create!(name: "Ajax")
@@ -13,3 +18,4 @@ Topic.create!(name: "Algorithms")
 Topic.create!(name: "SQL")
 Topic.create!(name: "Git")
 Topic.create!(name: "CRUD")
+
