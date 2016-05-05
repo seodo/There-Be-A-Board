@@ -11,11 +11,15 @@
   <% end %>
 
   <%= simple_form_for @appointment do |f| %>
-    <%= f.date_select :start_time, label: "Day", as: :string, class: 'form-control datepicker' %>
-    <%= f.time_select :start_time, label: "Start Time", input_html: {class: "form-control"} %>
+    <input type='date' name:'date' />
+    <input type='time' name:'time' />
+
+
     <%= f.input :length, collection: ["30", "60"], input_html: {multiple: false} %>
 
-    <% if @topics.length > 0 %>
+
+
+    <% if @topics && @topics.length > 0 %>
     <strong>Topics:</strong>
       <% @topics.each do |topic| %>
       <%= check_box_tag "topics[]", topic.name %>

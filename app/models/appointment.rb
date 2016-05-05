@@ -32,6 +32,7 @@ def cannot_end_before_it_starts
 end
 
 def cannot_start_in_the_past
+  binding.pry
   if start_time < DateTime.now
     errors.add(:start_time, "cannot be in the past.")
   end

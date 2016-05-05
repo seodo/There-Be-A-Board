@@ -12,6 +12,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
+    @topics = Topic.all
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
@@ -36,6 +37,10 @@ class AppointmentsController < ApplicationController
   end
 
   private
+
+  def time_params
+    params.require(:appointment).permit(:date, :time)
+  end
   def appointment_params
     params.require(:appointment).permit(:start_time, :length, :notes, :phase, :status)
   end
