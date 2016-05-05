@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if logged_in?
       @user = User.find(params[:id])
     else
-      redirect_to 'sessions#new'
+      redirect_to root_path
     end
   end
 
