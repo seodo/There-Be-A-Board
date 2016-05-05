@@ -1,5 +1,5 @@
 
-<%= @user.full_name %>
+<h3>Welcome, <%= @user.full_name %></h3>
 <% if @user.type == "Mentor" %>
   <%= link_to "Create a New Tutoring Session", new_appointment_path %>
   <h2>My Future Appointments</h2>
@@ -7,4 +7,6 @@
     <li><%=appt.start_time%>, <%=appt.length%> minutes</li>
     <li>My Notes: <%=appt.notes%></li>
     <%end%>
+    <% else %>
+    <%= link_to "Find a Tutoring Session", appointments_path %>
 <% end %>
