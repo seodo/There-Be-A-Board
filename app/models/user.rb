@@ -33,4 +33,14 @@ class User < ActiveRecord::Base
   def unbooked_past_appointments
     self.completed_appointments.find_all{|appt| appt.open?}
   end
+
+  def received_reviews
+    self.completed_appointments.map do |appt|
+      appt.reviews.find{|rev| rev.author_id != self.id}
+    end
+  end
+
+  def average_rating
+    self.received_reviews.reduce(0){|sum, rev| sum + rev.rating.to_i} / self.received_reviews.length
+  end
 end
