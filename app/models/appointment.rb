@@ -8,7 +8,7 @@ class Appointment < ActiveRecord::Base
   validate :cannot_end_before_it_starts, :cannot_start_in_the_past, :cannot_overlap_existing_user_appointment
 
 def end_time
-  start_time + length.minutes
+  start_time + length.to_i.minutes
 end
 
 def open?
@@ -26,7 +26,7 @@ end
 private
 
 def cannot_end_before_it_starts
-  if start_time - self.end_time < 0
+  if start_time - self.end_time > 0
     errors.add(:end_time, "cannot be before the start time.")
   end
 end
