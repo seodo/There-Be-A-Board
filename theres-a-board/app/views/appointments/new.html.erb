@@ -1,0 +1,33 @@
+<div class="form-group">
+  <h1 id="sign-up-header">Create an Tutoring Session</h1>
+
+  <% if @errors %>
+  <ul>
+    <% @errors.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <%= form_tag(user_appointment_path, method: 'post') do %>
+    <ul>
+      <li>
+        <%= label_tag 'start_time' %><br />
+        <%= text_field_tag "appointment[start_time]" %>
+      </li>
+      <li>
+        <%= label_tag :length %><br />
+        <%= select_tag 'appointment[length]', "<option>30</option><option>60</option>".html_safe %>
+      </li>
+       <li>
+        <%= label_tag :notes %><br />
+        <%= text_field_tag "appointment[notes]" %>
+      </li>
+      <li>
+        <%= label_tag :phase %><br />
+        <%= text_field_tag 'appointment[phase]' %>
+      </li>
+       <li><%= submit_tag('Create Session', :class => "btn btn-warning") %></li>
+    </ul>
+  <% end %>
+</div>
