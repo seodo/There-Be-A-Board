@@ -12,14 +12,14 @@ def end_time
 end
 
 def open?
-  !student_id && !self.complete?
+  !student_id && !self.past?
 end
 
 def booked?
   !self.open?
 end
 
-def complete?
+def past?
   self.end_time < DateTime.now
 end
 

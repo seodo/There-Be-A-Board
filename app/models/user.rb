@@ -4,22 +4,22 @@ class User < ActiveRecord::Base
 
   validates :full_name, :email, presence: true
 
-  def completed_appointments
-    self.appointments.find_all{|appt| appt.complete?}
+  def past_appointments
+    self.appointments.find_all{|appt| appt.past?}
   end
 
-  def reviewed_appointments
+  def reviewed_past_appointments
     self.appointments.find_all do |appt|
       !!appt.reviews.find{|review| review.author_id == self.id}
     end
   end
 
-  def unreviewed_appointments
-    self.completed_appointments - self.reviewed_appointments
+  def unreviewed_past_appointments
+    self.past_appointments - self.reviewed_past_appointments
   end
 
   def future_appointments
-    self.appointments.find_all{|appt| !appt.complete?}
+    self.appointments.find_all{|appt| !appt.past?}
   end
 
   def booked_appointments
@@ -31,16 +31,24 @@ class User < ActiveRecord::Base
   end
 
   def unbooked_past_appointments
-    self.completed_appointments.find_all{|appt| appt.open?}
+    self.past_appointments.find_all{|appt| appt.open?}
   end
 
   def received_reviews
-    self.completed_appointments.map do |appt|
+    self.past_appointments.map do |appt|
       appt.reviews.find{|rev| rev.author_id != self.id}
     end
   end
 
   def average_rating
     self.received_reviews.reduce(0){|sum, rev| sum + rev.rating.to_i} / self.received_reviews.length
+  end
+
+  def stars_recieved
+    self.received_reviews.reduce(0){|sum, rev| sum + rev.rating.to_i}
+  end
+
+  def karma
+    self.stars_received + self.reviews.count
   end
 end
