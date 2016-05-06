@@ -5,6 +5,7 @@
     <% 5.times do |i| %>
     <li><%=link_to i, appointments_path(phase: i)%></li>
     <% end %>
+    <li><%=link_to "view all", appointments_path(phase: nil)%></li>
   </ul>
 </div>
 
@@ -16,27 +17,20 @@
   <% else %>
     <p>You don't have any upcoming appointments :(<p>
   <% end %>
-
-<div id="appointment_roll">
-  <ol>
-    <%@appointments_by_phase.each do |appt|%>
-        <li><h1><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
-        <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p></li>
-    <% end %>
-  </ol>
-
 </div>
 
 <div class="center-show">
 
-<h1>All Available Appointments</h1>
+<h1>Available Appointments For
+  <% if @phase %>
+    <%= "Phase #{@phase}"%>
+  <% else %>
+  All phases
+  <% end %>
+</h1>
   <ol class="center-list">
-  <%@appointments.each do |appt|%>
-
-      <li>
-        <h1 class="appt-listing"><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
-        <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p>
-      </li>
+  <%@appointments_by_phase.each do |appt|%>
+    <%= render appt %>
   <% end %>
   </ol>
 </div>
