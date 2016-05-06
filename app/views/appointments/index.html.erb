@@ -9,13 +9,13 @@ Appointment Index Page
   </ul>
 </div>
 
-<div id="appointment_roll">
-  <ol>
-    <%@appointments.each do |appt|%>
-        <li><h1><%= appt.start_time%></h1></li>
-        <li><h1><%=link_to appt.start_time, appointment_path(appt) %></h1></li>
-    <% end %>
-  </ol>
+<div id="next_appointment">
+  <h1>Your next booked appointment: </h1>
+  <% if @next_appointment %>
+    <h1 class="appt-listing"><%=link_to @next_appointment.start_time = format_time_for_visibility(@next_appointment.start_time), appointment_path(@next_appointment) %></h1>
+  <% else %>
+    <p>You don't have any upcoming appointments :(<p>
+  <% end %>
 </div>
 
 <h1>All Available Appointments</h1>
@@ -23,7 +23,7 @@ Appointment Index Page
   <%@appointments.each do |appt|%>
 
       <li>
-        <h1 id="appt-listing"><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
+        <h1 class="appt-listing"><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
         <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p>
       </li>
   <% end %>
