@@ -219,3 +219,17 @@ footer {
   min-height: 855px;
   text-align: center;
 }
+
+#delete-account {
+  color: red;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+}
+
+
+#delete-account a{
+  color: red;
+  font-weight: bold;
+}
