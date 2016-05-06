@@ -32,7 +32,11 @@ class AppointmentsController < ApplicationController
   def show
     @appointment = Appointment.find_by(id: params[:id])
     @user = User.find_by(id: session[:user_id])
-    @appointment.start_time = format_time_for_visibility(@appointment.start_time)
+    if @appointment
+      @appointment.start_time = format_time_for_visibility(@appointment.start_time)
+    else
+      redirect_to appointments_path
+    end
   end
 
   def update

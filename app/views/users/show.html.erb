@@ -25,13 +25,25 @@
 <% else %>
   <div class="center-show">
   <h2>Welcome to <%=@user.full_name%>'s Profile!</h2>
+  <br><br>
 <% end %>
 
+  <% if @user.type == "Student" && current_user != @user %>
+    <p><%=@user.full_name%> is a student!</p>
+  <% end %>
 
   <br><br>
 
-  <% if current_user == @user && @user.type == "Student" %>
-    <%= link_to "Find a Tutoring Session", appointments_path %>
+  <% if current_user.type == "Student" && @user.type == "Mentor" %>
+    <div class="appt-block">
+    <h2>Future Appointments</h2>
+      <ul class="center-list">
+        <%@user.appointments.each do |appt| %>
+        <li><h1><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
+        <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p></li>
+      <%end%>
+      </ul>
+  </div>
   <% end %>
 
   <% if current_user.id == @user.id %>

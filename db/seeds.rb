@@ -19,4 +19,3 @@ Topic.create!(name: "Algorithms")
 Topic.create!(name: "SQL")
 Topic.create!(name: "Git")
 Topic.create!(name: "CRUD")
-

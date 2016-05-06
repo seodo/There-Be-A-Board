@@ -1,6 +1,11 @@
 <nav class="navbar navbar-default">
+
   <ul class="nav navbar-nav">
-    <nav class="navbar-brand"><%= link_to "There's a Board", new_user_path %></nav>
+    <% if logged_in? %>
+        <nav class="navbar-brand"><%= link_to "There's a Board", appointments_path %></nav>
+    <% else %>
+        <nav class="navbar-brand"><%= link_to "There's a Board", new_user_path %></nav>
+    <% end %>
     <% if current_user %>
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Logout", logout_path, method: :delete %></nav>
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Profile", root_path %></nav>
@@ -14,4 +19,14 @@
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "New Tutoring Session", new_appointment_path %></nav>
     <% end %>
   </ul>
+
+  <% if logged_in? && current_user.type == "Mentor" %>
+    <span id="portal">MENTOR PORTAL</span>
+  <% end %>
+  <% if logged_in? && current_user.type == "Student" %>
+    <span id="portal">STUDENT PORTAL</span>
+  <% end %>
+
+
 </nav>
+
