@@ -45,10 +45,14 @@ class User < ActiveRecord::Base
   end
 
   def average_rating
-    self.received_reviews.reduce(0){|sum, rev| sum + rev.rating.to_i} / self.received_reviews.length
+    unless self.received_reviews.empty?
+      self.received_reviews.reduce(0){|sum, rev| sum + rev.rating.to_i} / self.received_reviews.length
+    else
+      "no reviews yet"
+    end
   end
 
-  def stars_recieved
+  def stars_received
     self.received_reviews.reduce(0){|sum, rev| sum + rev.rating.to_i}
   end
 

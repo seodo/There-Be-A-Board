@@ -1,14 +1,40 @@
-<div class="center-show">
+<% if @user.type == "Mentor" %>
+<div id="stats">
+  <div class="stat">
+    <h3>Karma: </h3>
+    <%= @user.karma %>
+  </div>
+  <div class="stat">
+    <h3>Average Rating: </h3>
+    <%= @user.average_rating %>
+  </div>
+  <div class="stat">
+    <h3>Total Appointments: </h3>
+    <%= @user.past_appointments.count %>
+  </div>
+    <div class="stat">
+    <h3>Member Since: </h3>
+    <%= @user.created_at %>
+  </div>
+</div>
+<% end %>
+
+<% if current_user.id == @user.id %>
+  <div class="center-show">
   <h2>Welcome, <%=@user.full_name%>! </h2>
+<% else %>
+  <div class="center-show">
+  <h2>Welcome to <%=@user.full_name%>'s Profile!</h2>
+<% end %>
 
-  <% if @user.type == "Mentor" %>
-    <%= link_to "Create a New Tutoring Session", new_appointment_path %>
-  <% end %>
 
-  <% if @user.type == "Student" %>
+  <br><br>
+
+  <% if current_user == @user && @user.type == "Student" %>
     <%= link_to "Find a Tutoring Session", appointments_path %>
   <% end %>
 
+  <% if current_user.id == @user.id %>
   <div class="appt-block">
     <h2>My Future Appointments</h2>
       <ul class="center-list">
@@ -21,6 +47,7 @@
 
   <br> <br>
 
+
   <div class="appt-block">
     <h2>My Past Appointments</h2>
       <ul class="center-list"><%@user.appointments.each do |appt| %>
@@ -31,4 +58,6 @@
       <%end%>
     </ul>
   </div>
+  <% end %>
+
 </div>
