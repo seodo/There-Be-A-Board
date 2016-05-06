@@ -57,4 +57,8 @@ class User < ActiveRecord::Base
   def karma
     self.stars_received + self.reviews.count
   end
+
+  def has_not_reviewed(appt)
+    appt.reviews.none?{|review| review.author_id == self.id}
+  end
 end
