@@ -76,8 +76,8 @@ title{
  }
 
 .center-show{
+  position: relative;
 margin: 0 auto;
-margin-top: -50px;
 text-align: center;
 }
 
@@ -115,7 +115,7 @@ span{
   float: left;
   width: 250px;
   padding: 10px;
-  margin: 60px 0px 0px 40px;
+  margin: 115px 0px 0px 40px;
   background-color: #d7dddd;
   border-radius: 10px;
 }
@@ -125,4 +125,9 @@ span{
 }
 .stat h3 {
   color: #48948c;
+}
+
+#portal {
+  float: right;
+  margin: 49px 20px 0px 0px;
 }
