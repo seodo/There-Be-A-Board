@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   validates :full_name, :email, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates_format_of :phone_number, :with => /\A\d{3}-\d{3}-\d{4}\z/, :on => :create
 
   def past_appointments
     self.appointments.find_all{|appt| appt.past?}.sort{|a,b| a.start_time <=> b.start_time}
