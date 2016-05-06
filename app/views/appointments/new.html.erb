@@ -1,5 +1,5 @@
 
-<!-- <div class="form-group"> -->
+<div id="create-session">
   <h1 id="sign-up-header-session">New Tutoring Session</h1>
 
   <% if @errors %>
@@ -11,8 +11,8 @@
   <% end %>
 
   <%= simple_form_for(@appointment, html: {class: "form-horizontal"}) do |f| %>
-    <input type='date' name= 'date' />
-    <input type='time' name= 'time' />
+    <strong>Date: </strong><input type='date' name= 'date' />
+    <strong>Time: </strong><input type='time' name= 'time' />
 
 
     <%= f.input :length, collection: ["30", "60"], input_html: {multiple: false} %>
@@ -31,4 +31,4 @@
 
     <%= f.button :submit, {:class => "btn btn-warning"}%>
   <% end %>
-<!-- </div> -->
+</div>

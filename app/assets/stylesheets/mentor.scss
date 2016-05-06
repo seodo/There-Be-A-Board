@@ -4,11 +4,7 @@
 
  body{
  	height: 100%;
- //  background: -webkit-linear-gradient( #60c5ba 10%, #4f9a92 90%);
- // background:    -moz-linear-gradient( #60c5ba 10%, #4f9a92 90%);
- // background:     -ms-linear-gradient(#60c5ba 10%, #4f9a92 90%);
- // background:      -o-linear-gradient( #60c5ba 10%, #4f9a92 90%);
- background:         linear-gradient(#60c5ba, #4f9a92 );
+  background:         linear-gradient(#60c5ba, #4f9a92 );
   font-family: 'Lato', sans-serif;
  }
 
@@ -153,4 +149,9 @@ span{
 #portal {
   float: right;
   margin: 49px 20px 0px 0px;
+}
+
+#create-session{
+  padding-top: 50px;
+  padding-bottom: 300px;
 }
