@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
     self.stars_received + self.reviews.count
   end
 
+    def can_book(appointment)
+    self.type == "Student" && !self.appointments.any?{ |booking| (appointment.start_time >= booking.start_time && appointment.start_time < booking.end_time) || appointment.end_time > booking.start_time && appointment.end_time <= booking.end_time}
+  end
+
   def has_not_reviewed(appt)
     appt.reviews.none?{|review| review.author_id == self.id}
   end
