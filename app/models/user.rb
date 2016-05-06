@@ -5,13 +5,13 @@ class User < ActiveRecord::Base
   validates :full_name, :email, presence: true
 
   def past_appointments
-    self.appointments.find_all{|appt| appt.past?}
+    self.appointments.find_all{|appt| appt.past?}.sort{|a,b| a.start_time <=> b.start_time}
   end
 
   def reviewed_past_appointments
-    self.appointments.find_all do |appt|
-      !!appt.reviews.find{|review| review.author_id == self.id}
-    end
+    self.appointments.find_all{
+      |appt|!!appt.reviews.find{|review| review.author_id == self.id}}
+      .sort{|a,b| a.start_time <=> b.start_time}
   end
 
   def unreviewed_past_appointments
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def future_appointments
-    self.appointments.find_all{|appt| !appt.past?}
+    self.appointments.find_all{|appt| !appt.past?}.sort{|a,b| a.start_time <=> b.start_time}
   end
 
   def booked_appointments
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def next_booked_appointment
-    self.booked_appointments.sort{|a,b| a.start_time <=> b.start_time}.first
+    self.booked_appointments.first
   end
 
   def open_appointments

@@ -1,4 +1,10 @@
 <li>
   <h1 class="appt-listing"><%=link_to appointment.start_time = format_time_for_visibility(appointment.start_time), appointment_path(appointment) %></h1>
-  <p>With <%=appointment.mentor.full_name%>: Phase <%=appointment.phase%></p>
+  <p>With <%=appointment.mentor.full_name%>: Phase <%=appointment.phase%>
+    <% if appointment.booked? %>
+      | Booked by <%= appointment.student.full_name %>
+    <% elsif @user.type == "Student" && @user.can_book(appointment) %>
+      | <%= link_to "book this appointment", appointment_path(appointment), method: :put %>
+    <% end %>
+  </p>
 </li>
