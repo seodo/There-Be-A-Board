@@ -24,10 +24,13 @@ Appointment.create!(start_time: DateTime.now + 4.days, length: "30", mentor_id: 
 Appointment.create!(start_time: DateTime.now + 5.days, length: "30", mentor_id: 4, phase: 2, topics: [Topic.find(1), Topic.find(2), Topic.find(6), Topic.find(5)])
 Appointment.create!(start_time: DateTime.now + 6.days, length: "30", mentor_id: 4, phase: 2, topics: [Topic.find(1), Topic.find(2), Topic.find(7)])
 
-Review.create!(rating: "5", author_id: 1, body: "Very helpful, I really liked how you made me drive through the Word Search challenge!", appointment_id: 3)
+Review.create!(rating: "5", author_id: 3, body: "Very helpful, I really liked how you made me drive through the Word Search challenge!", appointment_id: 3)
 
 Review.create!(rating: "4", author_id: 4, body: "You've got a great grip on the material, I would suggest going back and refactoring your old Ruby Racer challenge!", appointment_id: 3)
 
-Review.create!(rating: "3", author_id: 1, body: "Thank you for helping me ask more specific questions on my confusion - Keep encouraging a curious environment in your sessions!", appointment_id: 1)
+Review.create!(rating: "3", author_id: 3, body: "Thank you for helping me ask more specific questions on my confusion - Keep encouraging a curious environment in your sessions!", appointment_id: 2)
 
+Review.create!(rating: "3", author_id: 3, body: "Thank you for helping me ask more specific questions on my confusion - Keep encouraging a curious environment in your sessions!", appointment_id: 4)
+
+Review.create!(rating: "3", author_id: 1, body: "Thank you for helping me ask more specific questions on my confusion - Keep encouraging a curious environment in your sessions!", appointment_id: 1)
 Review.create!(rating: "4", author_id: 2, body: "Great job asking specific questions on conditional logic, keep probing that!", appointment_id: 1)

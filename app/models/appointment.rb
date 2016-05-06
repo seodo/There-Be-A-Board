@@ -5,8 +5,8 @@ class Appointment < ActiveRecord::Base
   has_and_belongs_to_many :topics
 
   validates :start_time, :length, :phase, presence: true
-  validate :cannot_end_before_it_starts, :cannot_overlap_existing_user_appointment
-  validate :cannot_start_in_the_past
+  # validate :cannot_end_before_it_starts, :cannot_overlap_existing_user_appointment
+  # validate :cannot_start_in_the_past
 def end_time
   start_time + length.to_i.minutes
 end
@@ -34,21 +34,21 @@ def cannot_end_before_it_starts
     errors.add(:end_time, "cannot be before the start time.")
   end
 end
-
-def cannot_start_in_the_past
-  if start_time < DateTime.now.utc
-    errors.add(:start_time, "cannot be in the past.")
-  end
-end
-
-def cannot_overlap_existing_user_appointment
-  potential_conflicts = User.find(student_id || mentor_id).appointments
-  if potential_conflicts.any?{
-    |appt| start_time >= appt.start_time && start_time < appt.end_time }
-    errors.add(:start_time, "overlaps with one of your existing commitments.")
-  elsif potential_conflicts.any?{ |appt| self.end_time > appt.start_time && self.end_time <= appt.end_time}
-      errors.add(:end_time, "overlaps with one of your existing commitments.")
-  end
-end
+#
+# def cannot_start_in_the_past
+#   if start_time < DateTime.now.utc
+#     errors.add(:start_time, "cannot be in the past.")
+#   end
+# end
+#
+# def cannot_overlap_existing_user_appointment
+#   potential_conflicts = User.find(student_id || mentor_id).appointments
+#   if potential_conflicts.any?{
+#     |appt| start_time >= appt.start_time && start_time < appt.end_time }
+#     errors.add(:start_time, "overlaps with one of your existing commitments.")
+#   elsif potential_conflicts.any?{ |appt| self.end_time > appt.start_time && self.end_time <= appt.end_time}
+#       errors.add(:end_time, "overlaps with one of your existing commitments.")
+#   end
+# end
 
 end

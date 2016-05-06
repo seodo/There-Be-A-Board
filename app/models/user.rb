@@ -39,9 +39,7 @@ class User < ActiveRecord::Base
   end
 
   def received_reviews
-    self.past_appointments.map do |appt|
-      appt.reviews.find{|rev| rev.author_id != self.id}
-    end
+    self.past_appointments.map {|appt| appt.reviews.find{|rev| rev.author_id != self.id}}.compact
   end
 
   def average_rating
