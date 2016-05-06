@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
 
   def new
-    @appointment = Appointment.find(params[:appointment_id])
-    @review = Review.new
+    if !logged_in?
+      redirect_to root_path
+    else
+      @appointment = Appointment.find(params[:appointment_id])
+      @review = Review.new
+    end
   end
 
   def create

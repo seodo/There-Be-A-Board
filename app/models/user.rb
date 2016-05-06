@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :reviews, foreign_key: :author_id
 
   validates :full_name, :email, presence: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
   def past_appointments
     self.appointments.find_all{|appt| appt.past?}.sort{|a,b| a.start_time <=> b.start_time}
@@ -65,4 +66,5 @@ class User < ActiveRecord::Base
   def has_not_reviewed(appt)
     appt.reviews.none?{|review| review.author_id == self.id}
   end
+
 end
