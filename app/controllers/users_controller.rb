@@ -22,7 +22,12 @@ class UsersController < ApplicationController
 
   def show
     if logged_in?
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
+      if @user
+        render 'show'
+      else
+        redirect_to appointments_path
+      end
     else
       redirect_to root_path
     end
