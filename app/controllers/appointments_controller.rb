@@ -18,9 +18,11 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.mentor_id = current_user.id
-    @appointment.topics << Topic.find(params[:appointment][:topics])
-    @appointment.start_time = combine_date_time(params[:date], params[:time])
-    @topics = Topic.all
+    if params[:appointment][:topics]
+      @appointment.topics << Topic.find(params[:appointment][:topics])
+    end
+      @appointment.start_time = combine_date_time(params[:date], params[:time])
+    # @topics = Topic.all
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
