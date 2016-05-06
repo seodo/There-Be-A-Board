@@ -27,7 +27,6 @@ title{
   color: #48948c;
  }
 
-
  .form-horizontal{
   width: 50%;
   margin: 0 auto;
@@ -49,7 +48,7 @@ title{
    text-align: center;
    letter-spacing: 1px;
    font-weight: 300;
-   width: 200px;
+   width: 500px;
  }
 
  #appt-listing a{
@@ -71,3 +70,44 @@ title{
  a:hover{
   color: #e78d0c;
  }
+
+ #header-welcome{
+  color: #60c5ba;
+ }
+
+.center-show{
+margin: 0 auto;
+text-align: center;
+}
+
+ ul li{
+  list-style-type: none;
+ }
+
+ ol li{
+  list-style-type: none;
+ }
+
+.appt-block{
+  background-color: #d7dddd;
+  padding: 20px;
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+span{
+  color: #60c5ba;
+  font-size: 1.3em;
+}
+
+.center-list{
+   list-style-type: none;
+   text-align: center;
+   margin: 0 auto;
+   margin-left: -55px;
+}
+
+
+

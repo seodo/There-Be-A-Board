@@ -10,7 +10,7 @@
   </ul>
   <% end %>
 
-  <%= simple_form_for @appointment do |f| %>
+  <%= simple_form_for(@appointment, html: {class: "form-horizontal"}) do |f| %>
     <input type='date' name= 'date' />
     <input type='time' name= 'time' />
 
