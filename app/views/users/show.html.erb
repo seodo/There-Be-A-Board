@@ -94,3 +94,8 @@
   <% end %>
 
 </div>
+<% if current_user == @user %>
+  <%= link_to 'Deactivate your account', user_path(@user), method: :delete %>
+<% end %>
+
+
