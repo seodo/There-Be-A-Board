@@ -1,5 +1,4 @@
 
-Appointment Index Page
 <div id="right-sidebar">
   <ul>
     <li>Show by mentor phase:</li>
@@ -9,6 +8,7 @@ Appointment Index Page
   </ul>
 </div>
 
+
 <div id="next_appointment">
   <h1>Your next booked appointment: </h1>
   <% if @next_appointment %>
@@ -16,7 +16,18 @@ Appointment Index Page
   <% else %>
     <p>You don't have any upcoming appointments :(<p>
   <% end %>
+
+<div id="appointment_roll">
+  <ol>
+    <%@appointments.each do |appt|%>
+<!--         <li><h1><%= appt.start_time%></h1></li> -->
+        <li><h1><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
+        <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p></li>
+    <% end %>
+  </ol>
+
 </div>
+<div class="center-show">
 
 <h1>All Available Appointments</h1>
   <ol>
@@ -28,4 +39,4 @@ Appointment Index Page
       </li>
   <% end %>
   </ol>
-
+</div>

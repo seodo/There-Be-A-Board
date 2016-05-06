@@ -1,15 +1,34 @@
+<div class="center-show">
   <h2>Welcome, <%=@user.full_name%>! </h2>
-<% if @user.type == "Mentor" %>
-  <%= link_to "Create a New Tutoring Session", new_appointment_path %>
-  <h2>My Future Appointments</h2>
-  <ul><%@user.appointments.each do |appt| %>
-    <li><%=appt.start_time%>, <%=appt.length%> minutes</li>
-    <li>My Notes: <%=appt.notes%></li>
-    <%end%>
-<% end %>
 
+  <% if @user.type == "Mentor" %>
+    <%= link_to "Create a New Tutoring Session", new_appointment_path %>
+  <% end %>
 
-    <% if @user.type == "Student" %>
+  <% if @user.type == "Student" %>
     <%= link_to "Find a Tutoring Session", appointments_path %>
+  <% end %>
 
-<% end %>
+  <div class="appt-block">
+    <h2>My Future Appointments</h2>
+      <ul>
+        <%@user.appointments.each do |appt| %>
+        <li><%=appt.start_time%>, <%=appt.length%> minutes</li>
+        <li>Notes: <%=appt.notes%></li>
+      <%end%>
+      </ul>
+  </div>
+
+  <br> <br>
+
+  <div class="appt-block">
+    <h2>My Past Appointments</h2>
+      <ul><%@user.appointments.each do |appt| %>
+        <% if appt.past? %>
+          <li><%= link_to "Review this session", new_appointment_review_path(appt) %></li>
+          <li>My Notes: <%=appt.notes%></li>
+        <%end%>
+      <%end%>
+    </ul>
+  </div>
+</div>

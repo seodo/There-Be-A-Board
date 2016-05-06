@@ -1,8 +1,7 @@
 Appointment Show Page
-<h1><%=@appointment.start_time%></h1>
+<h1><%=@appointment.start_time = format_time_for_visibility(@appointment.start_time)%></h1>
 
 <%= link_to "Review this session", new_appointment_review_path(@appointment) %>
-
 
 
   <% if @errors %>
