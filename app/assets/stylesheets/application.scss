@@ -77,8 +77,15 @@ title{
 
 .center-show {
   position: relative;
-margin: 0 auto;
-text-align: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#center-show-name h2{
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  right: 150px;
 }
 
  ul li{
@@ -175,4 +182,9 @@ span{
   margin: 100px 0px 0px 40px;
   background-color: #d7dddd;
   border-radius: 10px;
+}
+
+#review-form{
+  padding-top: 50px;
+  padding-bottom: 350px;
 }

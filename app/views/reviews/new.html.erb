@@ -1,22 +1,23 @@
 
 <div class="form-group">
+  <div id="review-form">
+  <h3 class="center-show"><span id="ask">A</span>ctionable, <span id="ask">S</span>pecific, and <span id="ask">K</span>ind Feedback</h3>
+  <%= simple_form_for([@appointment, @review], html: {class: "form-horizontal"}) do |f|%>
+  <br />
+  <ul class="form-center">
+    <li>
+      <%= f.label :rating %>
+      <%= f.select :rating, ['1', '2', '3', '4', '5']%>
+    </li><br />
 
-<h3 class="center-show"><span>A</span>ctionable, <span>S</span>pecific, and <span>K</span>ind Feedback</h3>
-<%= simple_form_for([@appointment, @review], html: {class: "form-horizontal"}) do |f|%>
-<br />
-<ul class="form-center">
-  <li>
-    <%= f.label :rating %>
-    <%= f.select :rating, ['1', '2', '3', '4', '5']%>
-  </li><br />
+    <li>
+      <%= f.label :body%><br />
+      <%= f.text_area :body%><br />
+    </li><br />
 
-  <li>
-    <%= f.label :body%><br />
-    <%= f.text_area :body%><br />
-  </li><br />
-
-  <li>
-    <%= f.button :submit, {:class => "btn btn-warning"}%>
-  </li>
-  <%end%>
+    <li>
+      <%= f.button :submit, {:class => "btn btn-warning"}%>
+    </li>
+    <%end%>
+  </div>
 </div>
