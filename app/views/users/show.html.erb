@@ -13,8 +13,8 @@
     <h2>My Future Appointments</h2>
       <ul>
         <%@user.appointments.each do |appt| %>
-        <li><%=appt.start_time%>, <%=appt.length%> minutes</li>
-        <li>Notes: <%=appt.notes%></li>
+        <li><h1><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
+        <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p></li>
       <%end%>
       </ul>
   </div>
