@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false
       t.string :password_digest, null: false
       t.string :photo_path
-      t.integer :phone_number
+      t.string :phone_number
       t.string :type, default: "Student"
 
       t.timestamps null: false
