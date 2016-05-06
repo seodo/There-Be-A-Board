@@ -36,12 +36,12 @@
   <div class="center-show">
   <h2>Welcome to <%=@user.full_name%>'s Profile!</h2>
   <br><br>
-  </div>
 <% end %>
 
   <% if @user.type == "Student" && current_user != @user %>
     <p><%=@user.full_name%> is a student!</p>
   <% end %>
+  </div>
 
   <br><br>
 
