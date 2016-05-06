@@ -9,5 +9,9 @@
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Log In", login_path %></nav>
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Register", new_user_path %></nav>
     <%end%>
+
+    <% if logged_in? && current_user.type == "Mentor" %>
+    <nav class="navbar-text navbar-right navbar-link"><%= link_to "New Tutoring Session", new_appointment_path %></nav>
+    <% end %>
   </ul>
 </nav>
