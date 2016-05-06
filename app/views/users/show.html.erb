@@ -1,3 +1,11 @@
+<div id="contact-info">
+  <h3>Phone Number: </h3>
+    <%= @user.phone_number %>
+  <h3>Email: </h3>
+    <%= @user.email %>
+</div>
+
+
 <% if @user.type == "Mentor" %>
 <div id="stats">
   <div class="stat">
