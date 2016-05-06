@@ -6,9 +6,10 @@
     <% else %>
         <nav class="navbar-brand"><%= link_to "There's a Board", new_user_path %></nav>
     <% end %>
+
     <% if current_user %>
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Logout", logout_path, method: :delete %></nav>
-    <nav class="navbar-text navbar-right navbar-link"><%= link_to "Profile", root_path %></nav>
+    <nav class="navbar-text navbar-right navbar-link"><%= link_to current_user.full_name, root_path %></nav>
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Available Sessions", appointments_path %></nav>
     <% else %>
     <nav class="navbar-text navbar-right navbar-link"><%= link_to "Log In", login_path %></nav>
