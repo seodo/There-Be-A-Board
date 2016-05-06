@@ -13,7 +13,7 @@
 <div id="next_appointment">
   <h1>Your next booked appointment: </h1>
   <% if @next_appointment %>
-    <h1 class="appt-listing"><%=link_to @next_appointment.start_time = format_time_for_visibility(@next_appointment.start_time), appointment_path(@next_appointment) %></h1>
+    <%= render @next_appointment %>
   <% else %>
     <p>You don't have any upcoming appointments :(<p>
   <% end %>
@@ -25,7 +25,7 @@
   <% if @phase %>
     <%= "Phase #{@phase}"%>
   <% else %>
-  All phases
+  All Phases
   <% end %>
 </h1>
   <ol class="center-list">

@@ -20,7 +20,7 @@ def booked?
 end
 
 def past?
-  self.end_time < DateTime.now
+  self.end_time < DateTime.now.utc
 end
 
 private
@@ -32,7 +32,7 @@ def cannot_end_before_it_starts
 end
 
 def cannot_start_in_the_past
-  if start_time < DateTime.now
+  if start_time < DateTime.now.utc
     errors.add(:start_time, "cannot be in the past.")
   end
 end

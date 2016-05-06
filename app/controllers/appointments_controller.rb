@@ -46,8 +46,8 @@ class AppointmentsController < ApplicationController
   private
 
   def combine_date_time(date, time)
-    dt = "#{date} #{time} +0400"
-    DateTime.parse(dt)
+    dt = "#{date} #{time}"
+    DateTime.parse(dt).change.utc
   end
 
   def appointment_params
