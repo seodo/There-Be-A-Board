@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @phase = params[:phase]
+    @user = User.find_by(id: session[:user_id])
     @next_appointment = User.find_by(id: session[:user_id]).next_booked_appointment
     @phase = params[:phase]
     @appointments_by_phase = open_appts_where_phase_is(@phase)
@@ -30,16 +31,21 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find_by(id: params[:id])
+    @user = User.find_by(id: session[:user_id])
     @appointment.start_time = format_time_for_visibility(@appointment.start_time)
   end
 
   def update
     @appointment = Appointment.find_by(id: params[:id])
-    @appointment.assign_attributes(student_id: current_user.id)
-    if @appointment.save
-      redirect_to root_path
+    if @appointment.open?
+      @appointment.assign_attributes(student_id: current_user.id)
+      if @appointment.save
+        redirect_to root_path
+       else
+        @errors = @appointment.errors.full_messages
+      end
     else
-       @errors = @appointment.errors.full_messages
+      @errors = "This appointment was already booked."
     end
   end
 
@@ -47,7 +53,7 @@ class AppointmentsController < ApplicationController
 
   def combine_date_time(date, time)
     dt = "#{date} #{time}"
-    DateTime.parse(dt).change.utc
+    DateTime.parse(dt).utc.change(:offset => "-0400")
   end
 
   def appointment_params
