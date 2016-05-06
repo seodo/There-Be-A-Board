@@ -2,17 +2,25 @@ class AppointmentsController < ApplicationController
   include AppointmentsHelper
 
   def index
-    @phase = params[:phase]
-    @user = User.find_by(id: session[:user_id])
-    @next_appointment = User.find_by(id: session[:user_id]).next_booked_appointment
-    @phase = params[:phase]
-    @appointments_by_phase = open_appts_where_phase_is(@phase)
-    @appointments = Appointment.all
+    if !logged_in?
+      redirect_to root_path
+    else
+      @phase = params[:phase]
+      @user = User.find_by(id: session[:user_id])
+      @next_appointment = User.find_by(id: session[:user_id]).next_booked_appointment
+      @phase = params[:phase]
+      @appointments_by_phase = open_appts_where_phase_is(@phase)
+      @appointments = Appointment.all
+    end
   end
 
   def new
-    @appointment = Appointment.new
-    @topics = Topic.all
+    if !logged_in?
+      redirect_to root_path
+    else
+      @appointment = Appointment.new
+      @topics = Topic.all
+    end
   end
 
   def create
@@ -30,12 +38,16 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find_by(id: params[:id])
-    @user = User.find_by(id: session[:user_id])
-    if @appointment
-      @appointment.start_time = format_time_for_visibility(@appointment.start_time)
+    if !logged_in?
+      redirect_to root_path
     else
-      redirect_to appointments_path
+      @appointment = Appointment.find_by(id: params[:id])
+      @user = User.find_by(id: session[:user_id])
+      if @appointment
+        @appointment.start_time = format_time_for_visibility(@appointment.start_time)
+      else
+        redirect_to appointments_path
+      end
     end
   end
 
