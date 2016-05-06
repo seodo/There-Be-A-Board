@@ -11,7 +11,7 @@
 
   <div class="appt-block">
     <h2>My Future Appointments</h2>
-      <ul>
+      <ul class="center-list">
         <%@user.appointments.each do |appt| %>
         <li><h1><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
         <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p></li>
@@ -23,7 +23,7 @@
 
   <div class="appt-block">
     <h2>My Past Appointments</h2>
-      <ul><%@user.appointments.each do |appt| %>
+      <ul class="center-list"><%@user.appointments.each do |appt| %>
         <% if appt.past? %>
           <li><%= link_to "Review this session", new_appointment_review_path(appt) %></li>
           <li>My Notes: <%=appt.notes%></li>

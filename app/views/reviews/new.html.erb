@@ -1,16 +1,22 @@
-<h1>Review!!!!!!!!!!!!</h1>
-<%= form_for([@appointment, @review]) do |f|%>
-<p>
-  <%= f.label :rating %>
-  <%= f.select :rating, ['1', '2', '3', '4', '5']%>
-</p>
 
-<p>
-  <%= f.label :body%>
-  <%= f.text_area :body%>
-</p>
+<div class="form-group">
 
-<p>
-  <%= f.submit%>
-</p>
-<%end%>
+<h3 class="center-show"><span>A</span>ctionable, <span>S</span>pecific, and <span>K</span>ind Feedback</h3>
+<%= simple_form_for([@appointment, @review], html: {class: "form-horizontal"}) do |f|%>
+<br />
+<ul class="form-center">
+  <li>
+    <%= f.label :rating %>
+    <%= f.select :rating, ['1', '2', '3', '4', '5']%>
+  </li><br />
+
+  <li>
+    <%= f.label :body%><br />
+    <%= f.text_area :body%><br />
+  </li><br />
+
+  <li>
+    <%= f.button :submit, {:class => "btn btn-warning"}%>
+  </li>
+  <%end%>
+</div>

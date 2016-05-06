@@ -27,7 +27,6 @@ title{
   color: #48948c;
  }
 
-
  .form-horizontal{
   width: 50%;
   margin: 0 auto;
@@ -92,9 +91,23 @@ text-align: center;
 .appt-block{
   background-color: #d7dddd;
   padding: 20px;
-  width: 40%;
+  width: 45%;
   margin: 0 auto;
   margin-top: 15px;
   border-radius: 10px;
 }
+
+span{
+  color: #60c5ba;
+  font-size: 1.3em;
+}
+
+.center-list{
+   list-style-type: none;
+   text-align: center;
+   margin: 0 auto;
+   margin-left: -55px;
+}
+
+
 
