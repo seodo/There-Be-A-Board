@@ -64,8 +64,9 @@
     <h2>My Past Appointments</h2>
       <ul class="center-list"><%@user.appointments.each do |appt| %>
         <% if appt.past? %>
-          <li><%= link_to "Review this session", new_appointment_review_path(appt) %></li>
+          <li><%= link_to "Review your session from #{appt.start_time = format_time_for_visibility(appt.start_time)} with #{appt.mentor.full_name}", new_appointment_review_path(appt) %></li>
           <li>My Notes: <%=appt.notes%></li>
+        <li>Reviews for me:</li>
         <%end%>
       <%end%>
     </ul>
