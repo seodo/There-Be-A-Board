@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
   def index
     @phase = params[:phase]
     @appointments = open_appts_where_phase_is(@phase)
+    @next_appointment = User.find_by(id: session[:user_id]).next_booked_appointment
   end
 
   def new

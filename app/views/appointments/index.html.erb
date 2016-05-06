@@ -9,12 +9,21 @@ Appointment Index Page
   </ul>
 </div>
 
+<div id="next_appointment">
+  <h1>Your next booked appointment: </h1>
+  <% if @next_appointment %>
+    <h1 class="appt-listing"><%=link_to @next_appointment.start_time = format_time_for_visibility(@next_appointment.start_time), appointment_path(@next_appointment) %></h1>
+  <% else %>
+    <p>You don't have any upcoming appointments :(<p>
+  <% end %>
+</div>
+
 <h1>All Available Appointments</h1>
   <ol>
   <%@appointments.each do |appt|%>
 
       <li>
-        <h1 id="appt-listing"><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
+        <h1 class="appt-listing"><%=link_to appt.start_time = format_time_for_visibility(appt.start_time), appointment_path(appt) %></h1>
         <p>With <%=appt.mentor.full_name%>: Phase <%=appt.phase%></p>
       </li>
   <% end %>

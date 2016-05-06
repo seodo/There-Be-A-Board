@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     self.future_appointments.find_all{|appt| appt.booked?}
   end
 
+  def next_booked_appointment
+    self.booked_appointments.sort{|a,b| a.start_time <=> b.start_time}.first
+  end
+
   def open_appointments
     self.future_appointments.find_all{|appt| appt.open?}
   end
