@@ -63,6 +63,10 @@ title{
   color: white;
  }
 
+ .appt-listing a{
+  color: white;
+ }
+
  .appt-block{
    background-color: #d7dddd;
    padding: 20px;
@@ -158,4 +162,10 @@ span{
 #create-session{
   padding-top: 50px;
   padding-bottom: 300px;
+}
+
+#appt_show_div {
+  padding-top: 50px;
+  min-height: 855px;
+  text-align: center;
 }
