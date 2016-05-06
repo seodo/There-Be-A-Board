@@ -7,8 +7,9 @@
 <% end %>
 </ul>
 
-<%= link_to "Review this session", new_appointment_review_path(@appointment) %>
-
+<% if @appointment.past? %>
+  <%= link_to "Review this session", new_appointment_review_path(@appointment) %>
+<% end %>
 
   <% if @errors %>
   <ul>

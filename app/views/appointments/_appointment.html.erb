@@ -5,6 +5,8 @@
       | Booked by <%= appointment.student.full_name %>
     <% elsif @user.type == "Student" && @user.can_book(appointment) %>
       | <%= link_to "book this appointment", appointment_path(appointment), method: :put %>
+    <% elsif @user.type = "Student" %>
+      | *conflicts with one of your bookings*
     <% end %>
   </p>
 </li>
