@@ -22,7 +22,7 @@
   </div>
     <div class="stat">
     <h3>Member Since: </h3>
-    <%= @user.created_at %>
+    <%= @user.created_at = format_time_for_visibility(@user.created_at) %>
   </div>
 </div>
 <% end %>
