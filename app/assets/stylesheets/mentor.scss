@@ -3,12 +3,12 @@
  @import "bootstrap";
 
  body{
-  height: 100%;
-  background: -webkit-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
- background:    -moz-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
- background:     -ms-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
- background:      -o-linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
- background:         linear-gradient(90deg, #f4f7f7 10%, #e4e7ec 90%);
+ 	height: 100%;
+ //  background: -webkit-linear-gradient( #60c5ba 10%, #4f9a92 90%);
+ // background:    -moz-linear-gradient( #60c5ba 10%, #4f9a92 90%);
+ // background:     -ms-linear-gradient(#60c5ba 10%, #4f9a92 90%);
+ // background:      -o-linear-gradient( #60c5ba 10%, #4f9a92 90%);
+ background:         linear-gradient(#60c5ba, #4f9a92 );
   font-family: 'Lato', sans-serif;
  }
 
@@ -16,10 +16,10 @@ title{
   color: #60c5ba;
 }
  .navbar-default {
-  background-color: white;
-  border-radius: 0;
-  height: 100px;
-  padding: 25px 0;
+ 	background-color: white;
+ 	border-radius: 0;
+ 	height: 100px;
+ 	padding: 25px 0;
   border-bottom: 4px solid black;
  }
 
@@ -51,8 +51,31 @@ title{
    width: 500px;
  }
 
- #appt-listing a{
-  color: #48948c;
+ #sign-up-header-session{
+   color: white;
+   size: 2em;
+   padding: 20px;
+   text-transform: uppercase;
+   margin: 0 auto;
+   text-align: center;
+   letter-spacing: 1px;
+   font-weight: 300;
+   width: 500px;
+ }
+
+ .appt-listing a{
+  color: white;
+ }
+
+ .appt-block{
+   background-color: #d7dddd;
+   padding: 20px;
+   width: 45%;
+   margin: 0 auto;
+   margin-top: 15px;
+   padding-bottom: 15px;
+   border-radius: 10px;
+   text-align: center;
  }
 
 .navbar-brand a{
@@ -75,10 +98,17 @@ title{
   color: #60c5ba;
  }
 
-.center-show {
+.center-show{
   position: relative;
-margin: 0 auto;
-text-align: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#center-show-name h2{
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  right: 150px;
 }
 
  ul li{
@@ -89,15 +119,6 @@ text-align: center;
   list-style-type: none;
  }
 
-.appt-block{
-  background-color: #d7dddd;
-  padding: 20px;
-  width: 45%;
-  margin: 0 auto;
-  margin-top: 15px;
-  padding-bottom: 15px;
-  border-radius: 10px;
-}
 
 span{
   color: #60c5ba;
@@ -119,6 +140,7 @@ span{
   margin: 115px 0px 0px 40px;
   background-color: #d7dddd;
   border-radius: 10px;
+  position: relative;
 }
 
 .stat {
@@ -132,32 +154,3 @@ span{
   float: right;
   margin: 49px 20px 0px 0px;
 }
-
-#next_appointment {
-  position: relative;
-  margin: 0 auto;
-  padding-bottom: 100px;
-  text-align: center;
-  list-style-type: none;
-}
-
-  #sort-tabs {
-    width: 25%;
-    height: 5%;
-    background-color: #d7dddd;
-    padding: 20px 20px 10px 0px;
-    border-radius: 0px 0px 30px 30px;
-    margin-left: 60%;
-    margin-top: -20px;
-    margin-bottom: 30px;
-    content:" ";
-    display:table;
-    clear:both;
-  }
-
-  #sort-tabs li {
-    display: inline-block;
-    float: left;
-    margin: 0px 10px 10px 10px;
-  }
-

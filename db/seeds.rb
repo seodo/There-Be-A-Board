@@ -1,3 +1,5 @@
+
+
 User.create!(full_name: "Jackie", email: "jackie@gmail.com", password: "123", type: "Student")
 User.create!(full_name: "Dan", email: "dan@gmail.com", password: "123", type: "Mentor")
 User.create!(full_name: "Jon", email: "jon@gmail.com", password: "123", type: "Student")
