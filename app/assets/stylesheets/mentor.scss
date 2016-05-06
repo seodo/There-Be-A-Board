@@ -2,25 +2,26 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- body{
- 	height: 100%;
-  background:         linear-gradient(#60c5ba, #4f9a92 );
-  font-family: 'Lato', sans-serif;
- }
 
 title{
   color: #60c5ba;
 }
  .navbar-default {
- 	background-color: white;
- 	border-radius: 0;
- 	height: 100px;
- 	padding: 25px 0;
+  background-color: white;
+  border-radius: 0;
+  height: 100px;
+  padding: 25px 0;
   border-bottom: 4px solid black;
  }
 
  a{
   color: #48948c;
+ }
+
+ body{
+ 	min-height: 1000px;
+  background:         linear-gradient(#60c5ba, #4f9a92 );
+  font-family: 'Lato', sans-serif;
  }
 
  .form-horizontal{
@@ -168,4 +169,8 @@ span{
   padding-top: 50px;
   min-height: 855px;
   text-align: center;
+}
+
+#appt_show_div a{
+  color: white;
 }
