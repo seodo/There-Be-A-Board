@@ -23,6 +23,10 @@ def past?
   self.end_time < DateTime.now.utc
 end
 
+def list_topics
+  self.topics.reduce(""){ |string, topic| string + "| " + topic.name + " "}
+end
+
 private
 
 def cannot_end_before_it_starts

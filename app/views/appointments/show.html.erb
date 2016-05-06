@@ -1,5 +1,11 @@
-Appointment Show Page
+
 <h1><%=@appointment.start_time = format_time_for_visibility(@appointment.start_time)%></h1>
+
+<ul>
+<% @appointment.topics.each do |topic| %>
+  <li><%= topic.name %></li>
+<% end %>
+</ul>
 
 <%= link_to "Review this session", new_appointment_review_path(@appointment) %>
 
@@ -12,5 +18,8 @@ Appointment Show Page
   </ul>
   <% end %>
 <br>
-
-<%= link_to "book!", appointment_path(@appointment), method: :put %>
+<% if @appointment.booked? %>
+  Booked by <%= @appointment.student.full_name %>
+<% elsif current_user.type == "Student" %>
+  <%= link_to "book!", appointment_path(@appointment), method: :put %>
+<% end %>
