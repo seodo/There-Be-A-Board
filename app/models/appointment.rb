@@ -5,8 +5,8 @@ class Appointment < ActiveRecord::Base
   has_and_belongs_to_many :topics
 
   validates :start_time, :length, :phase, presence: true
-  validate :cannot_end_before_it_starts, :cannot_start_in_the_past, :cannot_overlap_existing_user_appointment
-
+  validate :cannot_end_before_it_starts, :cannot_overlap_existing_user_appointment
+  validate :cannot_start_in_the_past
 def end_time
   start_time + length.to_i.minutes
 end
