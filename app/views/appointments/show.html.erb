@@ -1,26 +1,29 @@
+<div id="appt_show_div">
+  <h1><%=@appointment.start_time = format_time_for_visibility(@appointment.start_time)%></h1>
 
-<h1><%=@appointment.start_time = format_time_for_visibility(@appointment.start_time)%></h1>
-
-<ul>
-<% @appointment.topics.each do |topic| %>
-  <li><%= topic.name %></li>
-<% end %>
-</ul>
-
-<% if @appointment.past? %>
-  <%= link_to "Review this session", new_appointment_review_path(@appointment) %>
-<% end %>
-
-  <% if @errors %>
-  <ul>
-    <% @errors.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+  <h3> Mentor: <%= link_to @appointment.mentor.full_name, user_path(@appointment.mentor)%></h2>
+  <% if @appointment.booked? %>
+    <h3>Booked by: <%= link_to @appointment.student.full_name, user_path(@appointment.student)%></h3>
+  <% elsif current_user.type == "Student" %>
+    <%= link_to "book!", appointment_path(@appointment), method: :put %>
   <% end %>
-<br>
-<% if @appointment.booked? %>
-  Booked by <%= @appointment.student.full_name %>
-<% elsif current_user.type == "Student" %>
-  <%= link_to "book!", appointment_path(@appointment), method: :put %>
-<% end %>
+  <h3> Topics covered:</h3> |
+    <% @appointment.topics.each do |topic| %>
+      <%= topic.name %> |
+    <% end %>
+  </h3>
+
+
+  <% if @appointment.past? %>
+    <%= link_to "Review this session", new_appointment_review_path(@appointment) %>
+  <% end %>
+
+    <% if @errors %>
+    <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+</div>
