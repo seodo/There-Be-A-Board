@@ -3,9 +3,8 @@ class AppointmentsController < ApplicationController
 
   def index
     @phase = params[:phase]
-    @appointments = open_appts_where_phase_is(@phase)
     @next_appointment = User.find_by(id: session[:user_id]).next_booked_appointment
-    @phase = params[:phase] || 0
+    @phase = params[:phase]
     @appointments_by_phase = open_appts_where_phase_is(@phase)
     @appointments = Appointment.all
   end
