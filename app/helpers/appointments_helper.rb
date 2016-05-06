@@ -10,6 +10,6 @@ module AppointmentsHelper
   end
 
   def format_time_for_visibility(time)
-    time.strftime("%A, %d %b %Y %l:%M %p")
+    time.in_time_zone("Eastern Time (US & Canada)").strftime("%A, %b %d, %Y %I:%M %p %Z")
   end
 end
