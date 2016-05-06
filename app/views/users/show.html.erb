@@ -20,12 +20,14 @@
 <% end %>
 
 <% if current_user.id == @user.id %>
-  <div class="center-show">
+  <div id="center-show-name">
   <h2>Welcome, <%=@user.full_name%>! </h2>
+  </div>
 <% else %>
   <div class="center-show">
   <h2>Welcome to <%=@user.full_name%>'s Profile!</h2>
   <br><br>
+  </div>
 <% end %>
 
   <% if @user.type == "Student" && current_user != @user %>
