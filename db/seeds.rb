@@ -1,9 +1,7 @@
-
-
-User.create!(full_name: "Jackie", email: "jackie@gmail.com", password: "123", type: "Student")
-User.create!(full_name: "Dan", email: "dan@gmail.com", password: "123", type: "Mentor")
-User.create!(full_name: "Jon", email: "jon@gmail.com", password: "123", type: "Student")
-User.create!(full_name: "Julia", email: "julia@gmail.com", password: "123", type: "Mentor")
+User.create!(full_name: "Jackie", email: "jackie@gmail.com", password: "123", type: "Student", phone_number: "123-456-7890")
+User.create!(full_name: "Dan", email: "dan@gmail.com", password: "123", type: "Mentor", phone_number: "123-456-7890")
+User.create!(full_name: "Jon", email: "jon@gmail.com", password: "123", type: "Student", phone_number: "123-456-7890")
+User.create!(full_name: "Julia", email: "julia@gmail.com", password: "123", type: "Mentor", phone_number: "123-456-7890")
 
 Topic.create!(name: "Ruby")
 Topic.create!(name: "JavaScript")
