@@ -8,20 +8,23 @@ Mentors and students alike can create profiles, post and sign up for appointment
 
 If you'd like to contribute to this project, please contact any member of our team.
 
-#Landing Page
+##Landing Page
 ![landing page](http://i.imgur.com/ZZCSQAe.png)
 
-#Register to Sign Up as a Student or Mentor
+##Register to Sign Up as a Student or Mentor
 ![registration](http://i.imgur.com/IMh7lJZ.png)
 
-#Create a New Tutoring Session as a Mentor
+##Create a New Tutoring Session as a Mentor
 ![new tutoring session](http://i.imgur.com/MCM7CO8.png)
 
-#Browse available sessions
+##Browse available sessions
 ![available sessions](http://i.imgur.com/j9isQ93.png)
 
-#Book a Session with a Mentor
-![booking sessions](http://i.imgur.com/MQKBL6v.png)
+##Book a Session with a Mentor
+![book a sessions](http://i.imgur.com/b6bTwdr.png)
+
+##Check your upcoming sessions
+![upcoming sessions](http://i.imgur.com/MQKBL6v.png)
 
 #Contributors
 Jackie Feminella - jaclynfeminella@gmail.com
